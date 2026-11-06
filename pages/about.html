@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nosotros - Kickz</title>
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Enlace CSS relativo a la carpeta static -->
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+
+<body>
+
+    <!-- Luces / Esferas de fondo decorativas -->
+    <div class="bg-blur bg-blur-1"></div>
+    <div class="bg-blur bg-blur-2"></div>
+    <div class="bg-blur bg-blur-3"></div>
+
+    <main class="app-container about-page-container">
+        <!-- Header de Sobre Nosotros -->
+        <header class="about-header d-flex align-items-center justify-content-between w-100">
+            <a href="../index.html" class="btn-back text-dark text-decoration-none fs-4">
+                <i class="bi bi-arrow-left"></i>
+            </a>
+            <h1 class="page-title m-0">Sobre Nosotros</h1>
+            <div style="width: 24px;"></div>
+        </header>
+
+        <!-- Contenedor con Flex Wrap de pantalla completa -->
+        <div class="about-content-wrapper">
+
+            <!-- Bloque 1: Historia & Banner -->
+            <section class="about-card story-card">
+                <div class="banner-box mb-4">
+                    <img src="https://img.freepik.com/vector-gratis/ilustracion-concepto-equipo-negocios_114360-1475.jpg"
+                        alt="Ilustración del equipo" class="img-fluid rounded-4 shadow-sm">
+                </div>
+                <div class="story-info">
+                    <h2 class="section-heading">Nuestra historia</h2>
+                    <p class="story-text text-secondary">
+                        Somos un equipo de personas apasionadas que creen en la calidad, la creatividad y las grandes
+                        experiencias.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Bloque 2: Integrantes del Equipo con Fotos -->
+            <section class="about-card team-card">
+                <div class="team-header mb-4">
+                    <h2 class="section-heading m-0">Nuestro equipo</h2>
+                    <p class="subtitle text-secondary mb-0">Conoce al equipo</p>
+                </div>
+
+                <div class="team-flex-container">
+                    <!-- Miembro 1 -->
+                    <div class="member-card">
+                        <div class="avatar-box mb-2">
+                            <img src="../static/img/ariel.png" alt="Ariel Faundez" class="avatar-img"
+                                onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Ariel+Faundez&background=111827&color=fff';">
+                        </div>
+                        <h3 class="member-name mb-0">Ariel Faundez</h3>
+                        <span class="member-role text-muted">CEO y Fundador</span>
+                    </div>
+
+                    <!-- Miembro 2 -->
+                    <div class="member-card">
+                        <div class="avatar-box mb-2">
+                            <img src="../static/img/javier.png" alt="Javier Colque" class="avatar-img"
+                                onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Javier+Colque&background=111827&color=fff';">
+                        </div>
+                        <h3 class="member-name mb-0">Javier Colque</h3>
+                        <span class="member-role text-muted">Marketing</span>
+                    </div>
+
+                    <!-- Miembro 3 -->
+                    <div class="member-card">
+                        <div class="avatar-box mb-2">
+                            <img src="../static/img/est3efanio.jpeg" alt="Estefano Ronaldo" class="avatar-img"
+                                onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Estefano+Ronaldo&background=111827&color=fff';">
+                        </div>
+                        <h3 class="member-name mb-0">Estefano Ronaldo</h3>
+                        <span class="member-role text-muted">Diseñador</span>
+                    </div>
+
+                    <!-- Miembro 4 -->
+                    <div class="member-card">
+                        <div class="avatar-box mb-2">
+                            <img src="../static/img/vicente.png" alt="Vicente Valdebenito" class="avatar-img"
+                                onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Vicente+Valdebenito&background=111827&color=fff';">
+                        </div>
+                        <h3 class="member-name mb-0">Vicente Valdebenito</h3>
+                        <span class="member-role text-muted">Desarrollador</span>
+                    </div>
+
+                    <!-- Miembro 5 -->
+                    <div class="member-card">
+                        <div class="avatar-box mb-2">
+                            <img src="../static/img/alan.png" alt="Alan Sepúlveda" class="avatar-img"
+                                onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Alan+Sepulveda&background=111827&color=fff';">
+                        </div>
+                        <h3 class="member-name mb-0">Alan Sepúlveda</h3>
+                        <span class="member-role text-muted">Soporte</span>
+                    </div>
+
+                    <!-- Miembro 6 -->
+                    <div class="member-card">
+                        <div class="avatar-box mb-2">
+                            <img src="../static/img/yhojan.png" alt="Yhojans Silva" class="avatar-img"
+                                onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Yhojans+Silva&background=111827&color=fff';">
+                        </div>
+                        <h3 class="member-name mb-0">Yhojans Silva</h3>
+                        <span class="member-role text-muted">Ventas</span>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- Footer decorativo -->
+        <footer class="text-center text-muted footer-text w-100 mt-auto pt-3">
+            &copy; 2026 KICKZ Inc. Todos los derechos reservados.
+        </footer>
+    </main>
+
+</body>
+
+</html>

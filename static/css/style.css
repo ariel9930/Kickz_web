@@ -1,16 +1,629 @@
-*{
-    padding: 0;
-    margin: 0;
+:root {
+    --primary-dark: #111827;
+    --accent-red: #ff3b30;
+    --bg-home: #e9ecef;
+    --border-light: #e5e7eb;
+    --card-bg: rgba(255, 255, 255, 0.95);
+    --header-border: #e5e7eb;
+}
+
+* {
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
 }
-.logo_titulo img{
-    width: 80px;
+
+body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: #f3f4f6;
+    color: #1f2937;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Luces de ambiente flotantes de fondo */
+.bg-blur {
+    position: fixed;
     border-radius: 50%;
+    filter: blur(100px);
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.4;
 }
-.rojo{
-    color: red;
+
+.bg-blur-1 {
+    width: 450px;
+    height: 450px;
+    background: rgba(255, 59, 48, 0.22);
+    top: -80px;
+    left: -80px;
 }
-.buscar img{
-    width: 40px;
+
+.bg-blur-2 {
+    width: 500px;
+    height: 500px;
+    background: rgba(59, 130, 246, 0.2);
+    bottom: -100px;
+    right: -100px;
+}
+
+.bg-blur-3 {
+    width: 350px;
+    height: 350px;
+    background: rgba(168, 85, 247, 0.15);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Contenedor Base Adaptable */
+.app-container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 440px;
+    min-height: 100vh;
+    margin: 0 auto;
+    background: var(--card-bg);
+    backdrop-filter: blur(16px);
+    padding: 2rem 1.5rem;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 1.5rem;
+}
+
+/* ==========================================
+   ELEMENTOS GENERALES E INDEX
+   ========================================== */
+
+.badge-tag {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 0.4rem 0.9rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    color: #374151;
+}
+
+.logo-wrapper {
+    width: 170px;
+    height: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.logo-wrapper:hover {
+    transform: scale(1.05);
+}
+
+.logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.subtitle {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #6b7280;
+}
+
+.section-title {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #9ca3af;
+    margin-bottom: 0.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.nav-section,
+.auth-section {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    width: 100%;
+}
+
+.icon-box {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+}
+
+.btn-menu,
+.btn-auth {
+    width: 100%;
+    padding: 0.85rem 1.25rem;
+    border-radius: 16px;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--primary-dark);
+    text-decoration: none;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-home {
+    background-color: #e5e7eb;
+    border: 1px solid transparent;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.btn-custom {
+    background-color: #ffffff;
+    border: 1px solid var(--border-light);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+}
+
+.btn-custom:hover,
+.btn-home:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.07);
+    background-color: #ffffff;
+}
+
+.btn-auth {
+    background-color: #ffffff;
+    border: 1.5px solid #1f2937;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.btn-auth-primary {
+    background-color: #111827;
+    color: #ffffff;
+    border-color: #111827;
+}
+
+.btn-auth:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+}
+
+.btn-auth-primary:hover {
+    background-color: #1f2937;
+    color: #ffffff;
+}
+
+.footer-text {
+    font-size: 0.78rem;
+}
+
+/* ==========================================
+   INPUTS PERSONALIZADOS
+   ========================================== */
+
+.custom-input {
+    border: 1.5px solid #333a48;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    color: #1f2937;
+    background-color: #ffffff;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-group-text {
+    border: 1.5px solid #333a48;
+}
+
+.custom-input:focus {
+    border-color: #111827;
+    box-shadow: none;
+}
+
+/* ==========================================
+   SECCIÓN ABOUT
+   ========================================== */
+
+.about-header {
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid #0088ff;
+}
+
+.page-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #000000;
+}
+
+.about-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.about-card {
+    width: 100%;
+}
+
+.banner-box img {
+    width: 100%;
+    max-height: 220px;
+    object-fit: cover;
+    background-color: #e5e7eb;
+}
+
+.section-heading {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #000000;
+}
+
+.story-text {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #4b5563;
+}
+
+.team-flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1.5rem 1rem;
+    justify-content: space-around;
+}
+
+.member-card {
+    flex: 1 1 calc(50% - 1rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.member-card:hover {
+    transform: translateY(-4px);
+}
+
+.avatar-box {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    border: 2px solid #ffffff;
+    background-color: #111827;
+}
+
+.avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.member-name {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #111827;
+}
+
+.member-role {
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* ==========================================
+   SECCIÓN CONTACT
+   ========================================== */
+
+.contact-header {
+    padding-bottom: 0.8rem;
+    border-bottom: 1.5px solid var(--border-light);
+}
+
+.contact-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    width: 100%;
+}
+
+.contact-card {
+    width: 100%;
+}
+
+.btn-send-message {
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    padding: 0.85rem;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-send-message:hover {
+    background-color: #222222;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.location-card {
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.map-box {
+    width: 110px;
+    height: 90px;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.map-placeholder {
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(45deg,
+            #e5e7eb,
+            #e5e7eb 10px,
+            #d1d5db 10px,
+            #d1d5db 20px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.map-pin {
+    font-size: 1.8rem;
+    color: #1f2937;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.btn-back-home {
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    padding: 0.85rem;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-back-home:hover {
+    background-color: #222222;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* ==========================================
+   SECCIÓN LOGIN
+   ========================================== */
+
+.login-header {
+    padding-bottom: 0.5rem;
+}
+
+.login-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-grow: 1;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.avatar-frame-box {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    padding: 4px;
+    background: linear-gradient(135deg, #111827 0%, #ff3b30 100%);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.avatar-frame-box:hover {
+    transform: scale(1.05);
+}
+
+.avatar-frame-box .avatar-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ffffff;
+}
+
+.login-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #111827;
+}
+
+.login-subtitle {
+    font-size: 0.9rem;
+}
+
+.btn-login-submit {
+    background-color: #111827;
+    color: #ffffff;
+    border: none;
+    padding: 0.9rem;
+    border-radius: 14px;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 12px rgba(17, 24, 39, 0.2);
+}
+
+.btn-login-submit:hover {
+    background-color: #ff3b30;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 59, 48, 0.3);
+}
+
+.signup-redirect {
+    font-size: 0.9rem;
+}
+
+/* ==========================================
+   MODO PANTALLA COMPLETA COMPUTADOR (>= 992px)
+   ========================================== */
+
+@media (min-width: 992px) {
+    .app-container {
+        max-width: 100%;
+        min-height: 100vh;
+        padding: 3rem 8%;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 2.5rem;
+        background: rgba(255, 255, 255, 0.45);
+        box-shadow: none;
+    }
+
+    /* Vista About para PC */
+    .about-content-wrapper {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 3rem;
+        max-width: 1400px;
+    }
+
+    .story-card {
+        flex: 1 1 400px;
+        background: #ffffff;
+        padding: 2.5rem;
+        border-radius: 24px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .team-card {
+        flex: 2 1 600px;
+        background: #ffffff;
+        padding: 2.5rem;
+        border-radius: 24px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .banner-box img {
+        max-height: 280px;
+    }
+
+    .avatar-box {
+        width: 95px;
+        height: 95px;
+    }
+
+    .team-flex-container {
+        justify-content: flex-start;
+        gap: 2rem 1.5rem;
+    }
+
+    .member-card {
+        flex: 1 1 calc(33.333% - 1.5rem);
+    }
+
+    /* Vista Contacto para PC */
+    .contact-content-wrapper {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 3rem;
+        max-width: 1200px;
+    }
+
+    .form-card {
+        flex: 1 1 500px;
+        background: #ffffff;
+        padding: 2.5rem;
+        border-radius: 24px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .info-card-wrapper {
+        flex: 1 1 400px;
+        background: #ffffff;
+        padding: 2.5rem;
+        border-radius: 24px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .map-box {
+        width: 140px;
+        height: 110px;
+    }
+
+    /* Vista Login para PC */
+    .login-content-wrapper {
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        max-width: 1200px;
+        padding: 2rem 0;
+    }
+
+    .login-card {
+        max-width: 520px;
+        background: #ffffff;
+        padding: 3.5rem 4rem;
+        border-radius: 28px;
+        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.07);
+        border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .avatar-frame-box {
+        width: 160px;
+        height: 160px;
+    }
+
+    .login-title {
+        font-size: 1.75rem;
+    }
 }
